@@ -101,12 +101,13 @@ def generate_additional_rules():
                     description="l = }",
                     key_to_modifiers=["left_shift"],
                 ),
-                functools.partial(
-                    spacefn,
-                    "l",
-                    "b",
-                    description="b to hold down space",
-                ),
+                # This doesn't seem to be necessary. Holding space repeats the input
+                # functools.partial(
+                #     spacefn,
+                #     "b",
+                #     "spacebar",
+                #     description="b to hold down space",
+                # ),
             ],
         },
     ]
@@ -129,7 +130,7 @@ def extend_base_config(base_config, additional_rules):
         filter(lambda x: x["name"] == "eclbg", base_config["profiles"])
     )
     rules = eclbg_profile["complex_modifications"]["rules"]
-    rules.extend(additional_rules)
+    _ = rules.extend(additional_rules)
     return base_config
 
 

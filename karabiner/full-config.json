@@ -657,7 +657,7 @@
                                             "key_code": "spacebar"
                                         },
                                         {
-                                            "key_code": "l"
+                                            "key_code": "b"
                                         }
                                     ],
                                     "simultaneous_options": {
@@ -684,7 +684,7 @@
                                         }
                                     },
                                     {
-                                        "key_code": "b"
+                                        "key_code": "spacebar"
                                     }
                                 ],
                                 "type": "basic",
@@ -699,7 +699,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "b",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -708,7 +708,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "b"
+                                        "key_code": "spacebar"
                                     }
                                 ],
                                 "type": "basic",
