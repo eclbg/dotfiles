@@ -19,102 +19,6 @@
                 },
                 "rules": [
                     {
-                        "description": "fn layer",
-                        "manipulators": [
-                            {
-                                "description": "j = (",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "9",
-                                        "modifiers": [
-                                            "shift"
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "k = )",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "0",
-                                        "modifiers": [
-                                            "shift"
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "u = {",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "u",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "open_bracket",
-                                        "modifiers": [
-                                            "shift"
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "i = }",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "close_bracket",
-                                        "modifiers": [
-                                            "shift"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "conditions": [
-                            {
-                                "type": "device_if",
-                                "identifiers": [
-                                    {
-                                        "product_id": 591,
-                                        "vendor_id": 1452
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "description": "double left shift to cap_lock",
                         "manipulators": [
                             {
@@ -138,7 +42,7 @@
                                         "key_code": "caps_lock"
                                     }
                                 ],
-                                "type": "basic"
+                                "type": "device_if"
                             },
                             {
                                 "from": {
@@ -178,7 +82,7 @@
                                         }
                                     ]
                                 },
-                                "type": "basic"
+                                "type": "device_if"
                             }
                         ],
                         "conditions": [
@@ -186,7 +90,7 @@
                                 "type": "device_if",
                                 "identifiers": [
                                     {
-                                        "product_id": 591,
+                                        "product_id": 833,
                                         "vendor_id": 1452
                                     }
                                 ]
@@ -222,19 +126,7 @@
                     "ignore": true,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": [],
-                    "treat_as_built_in_keyboard": false
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 591,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
+                    "treat_as_built_in_keyboard": false,
                     "simple_modifications": [
                         {
                             "from": {
@@ -268,6 +160,18 @@
                         }
                     ],
                     "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 833,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
