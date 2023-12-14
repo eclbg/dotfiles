@@ -43,5 +43,6 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^CameraController$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^OpenVPN Connect$" manage=off
 
 echo "yabai configuration loaded.."
