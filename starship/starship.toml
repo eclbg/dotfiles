@@ -7,12 +7,17 @@ disabled = true
 
 [aws]
 symbol = "  "
+disabled = true
+
+[gcloud]
+disabled = true
 
 [buf]
 symbol = " "
 
 [c]
 symbol = " "
+disabled = true
 
 [conda]
 symbol = " "
@@ -89,6 +94,7 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+disabled = true
 
 [ocaml]
 symbol = " "
@@ -170,3 +176,6 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+[kubernetes]
+disabled = true
