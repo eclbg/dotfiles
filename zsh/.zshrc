@@ -1,0 +1,75 @@
+# Use starship for the shell prompt
+eval "$(starship init zsh)"
+
+source ~/antigen.zsh
+
+# Load the oh-my-zsh library.
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle jeffreytse/zsh-vi-mode
+antigen apply
+
+# configure vi mode plugin
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+bindkey -M viins '\e.' insert-last-word
+
+# configure pyenv
+export pyenv_root="$home/.pyenv"
+[[ -d $pyenv_root/bin ]] && export path="$pyenv_root/bin:$path"
+eval "$(pyenv init -)"
+
+### aliases
+
+# nvim stuff
+alias vi=nvim
+alias vis='nvim -s'
+
+# last download
+alias ldl='echo "/users/eclbg/downloads/`ls -1 -t /users/eclbg/downloads | head -n 1`"'
+
+# tinybird
+alias tinybird_stop="ps -ef | grep 'tinybird_server' | grep -v grep | awk '{print \$2}' | xargs kill -9"
+alias tinybird_stop_python="ps -ef | grep 'analytics/.e/bin/python' | grep -v grep | awk '{print \$2}' | xargs kill -9"
+
+# tools
+alias cat=bat
+
+# convenience
+alias activate='source .venv/bin/activate'
+alias act=activate
+# not working yet, unfortunately
+# function fproc() {
+#     res=$(ps -ef | grep '$1' | grep -v grep)
+#     echo "$res"
+# }
+# alias killproc="ps -ef | grep '$1' | grep -v grep | awk '{print \$2}' | xargs kill -9"
+
+# Git
+alias gumaster='git fetch origin master:master'
+alias gumain='git fetch origin main:main'
+alias grit='git rebase -i `git merge-base master HEAD`'
+alias grita='git rebase -i `git merge-base master HEAD` --autosquash'
+alias gs='git status -uno' # Git status without untracked
+alias gsa='git status' # Git status with untracked
+function gnb() {
+    gumaster || :
+    git switch master 
+    git branch $1
+    git switch $1
+}
+
+# Start zoxide (better cd)
+eval "$(zoxide init zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Add gnu-sed to the beginning of PATH
+PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+
+# Add gcloud CLI to PATH
+export PATH="/Users/eclbg/google-cloud-sdk/bin:$PATH"
