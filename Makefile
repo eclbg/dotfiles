@@ -11,7 +11,7 @@ get-karabiner: ##
 put-karabiner: ##
 	cp ~/.config/karabiner/karabiner.json karabiner/karabiner.json
 diff-karabiner: ##
-	diff ~/.config/karabiner/karabiner.json karabiner/karabiner.json
+	-diff ~/.config/karabiner/karabiner.json karabiner/karabiner.json
 
 get-kitty:     ## Only conf, no themes for now
 	mv --backup=numbered ~/.config/kitty/kitty.conf backups/
@@ -19,7 +19,7 @@ get-kitty:     ## Only conf, no themes for now
 put-kitty:     ## Only conf, no themes for now
 	cp ~/.config/kitty/kitty.conf kitty/kitty.conf
 diff-kitty:     ## Only conf, no themes for now
-	diff ~/.config/kitty/kitty.conf kitty/kitty.conf
+	-diff ~/.config/kitty/kitty.conf kitty/kitty.conf
 
 get-skhd: ##
 	mv --backup=numbered ~/.config/skhd/skhdrc backups/
@@ -27,7 +27,7 @@ get-skhd: ##
 put-skhd: ##
 	cp ~/.config/skhd/skhdrc skhd/skhdrc
 diff-skhd: ##
-	diff ~/.config/skhd/skhdrc skhd/skhdrc
+	-diff ~/.config/skhd/skhdrc skhd/skhdrc
 
 get-starship:  ##
 	mv --backup=numbered ~/.config/starship.toml backups/
@@ -35,7 +35,7 @@ get-starship:  ##
 put-starship:  ##
 	cp ~/.config/starship.toml starship/starship.toml
 diff-starship:  ##
-	diff ~/.config/starship.toml starship/starship.toml
+	-diff ~/.config/starship.toml starship/starship.toml
 
 get-tmux: ##
 	mv --backup=numbered ~/.config/tmux/tmux.conf backups/
@@ -43,7 +43,7 @@ get-tmux: ##
 put-tmux: ##
 	cp ~/.config/tmux/tmux.conf tmux/tmux.conf
 diff-tmux: ##
-	diff ~/.config/tmux/tmux.conf tmux/tmux.conf
+	-diff ~/.config/tmux/tmux.conf tmux/tmux.conf
 
 get-yabai: ##
 	mv --backup=numbered ~/.config/yabai/yabairc backups/
@@ -51,7 +51,7 @@ get-yabai: ##
 put-yabai: ##
 	cp ~/.config/yabai/yabairc yabai/yabairc
 diff-yabai: ##
-	diff ~/.config/yabai/yabairc yabai/yabairc
+	-diff ~/.config/yabai/yabairc yabai/yabairc
 
 get-zsh: ##
 	mv --backup=numbered ~/.zshrc backups/
@@ -59,4 +59,4 @@ get-zsh: ##
 put-zsh: ##
 	cp ~/.zshrc zsh/zshrc
 diff-zsh: ##
-	diff ~/.zshrc zsh/zshrc
+	-diff ~/.zshrc zsh/zshrc
