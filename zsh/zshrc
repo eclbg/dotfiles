@@ -67,6 +67,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Add gnu versions of coreutils to the beginning of PATH. These will have no effect unless they've been installed previously with `brew install coreutils
+# These include ls, cat, mv, cp...
+PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 # Add gnu-sed to the beginning of PATH
 PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
