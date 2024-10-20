@@ -60,3 +60,7 @@ put-zsh: ##
 	cp ~/.zshrc zsh/zshrc
 diff-zsh: ##
 	-diff ~/.zshrc zsh/zshrc
+
+get-ipython: ##
+	cp ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+	cp ipython/keybindings.py ~/.ipython/profile_default/startup/keybindings.py
