@@ -1,0 +1,26 @@
+{:devices {:builtin [{:is_keyboard true}]}
+  :main [{:des "caps lock as left_control and viceversa"
+          :rules [:builtin [:##caps_lock :left_control] [:##left_control :caps_lock]]}
+         {:des "slash as right_control when held"
+          :rules [[:##slash :right_control nil {:alone :slash}]]}
+         {:des "open_bracket for sym layer"
+          :rules [:builtin [:open_bracket ["sym-mode" 1] nil {:afterup ["sym-mode" 0]
+                                                              :alone :open_bracket}]
+                           [:x :open_bracket ["sym-mode" 1]]
+                           [:c :close_bracket ["sym-mode" 1]]
+                           [:d :!S9 ["sym-mode" 1]] ;(
+                           [:f :!S0 ["sym-mode" 1]] ;)
+                           [:e :!Sopen_bracket ["sym-mode" 1]] ;{
+                           [:r :!Sclose_bracket ["sym-mode" 1]] ;}
+                           [:w :grave_accent_and_tilde ["sym-mode" 1]] ;``
+                           [:s :!Sgrave_accent_and_tilde ["sym-mode" 1]] 
+                           ]}
+         {:des "shift bottom row of left hand to the left so it's more similar to the moonlander"
+          :rules [:builtin [:##grave_accent_and_tilde :z]
+                           [:##z :x]
+                           [:##x :c]
+                           [:##c :v]
+                           [:##v :b]
+                           [:##b :grave_accent_and_tilde]
+                           ]}
+         ]}
