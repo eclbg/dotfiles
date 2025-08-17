@@ -18,6 +18,14 @@
                            [:w :grave_accent_and_tilde ["sym-mode" 1]] ;`
                            [:s :!Squote ["sym-mode" 1]] ;"
                            ]}
+         {:des "semicolon for hjkl as arrows"
+          :rules [:builtin [:semicolon ["arrows-mode" 1] nil {:afterup ["arrows-mode" 0]
+                                                              :alone :semicolon}]
+                           [:h :left_arrow ["arrows-mode" 1]]
+                           [:j :down_arrow ["arrows-mode" 1]]
+                           [:k :up_arrow ["arrows-mode" 1]]
+                           [:l :right_arrow ["arrows-mode" 1]]
+                           ]}
          ; {:des "shift bottom row of left hand to the left so it's more similar to the moonlander"
          ;  :rules [:builtin [:##grave_accent_and_tilde :z]
          ;                   [:##z :x]
