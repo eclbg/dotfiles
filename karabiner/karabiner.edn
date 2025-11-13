@@ -17,6 +17,8 @@
                            [:r :!Sclose_bracket ["sym-mode" 1]] ;}
                            [:w :grave_accent_and_tilde ["sym-mode" 1]] ;`
                            [:s :!Squote ["sym-mode" 1]] ;"
+                           [:u :page_up ["sym-mode" 1]] ;`
+                           [:j :page_down ["sym-mode" 1]] ;"
                            ]}
          {:des "semicolon for hjkl as arrows"
           :rules [:builtin [:semicolon ["arrows-mode" 1] nil {:afterup ["arrows-mode" 0]
