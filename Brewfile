@@ -1,6 +1,7 @@
 tap "koekeishiya/formulae"
 tap "yqrashawn/goku"
 
+brew "antigen"
 brew "atuin"
 brew "coreutils"
 brew "gnu-sed"
