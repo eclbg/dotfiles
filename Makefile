@@ -6,7 +6,7 @@ help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 get-karabiner: ##
-	mv --backup=numbered ~/.config/karabiner/karabiner.json backups/
+	[ -f ~/.config/karabiner/karabiner.json ] && mv --backup=numbered ~/.config/karabiner/karabiner.json backups/ || true
 	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 put-karabiner: ##
 	cp ~/.config/karabiner/karabiner.json karabiner/karabiner.json
@@ -14,7 +14,7 @@ diff-karabiner: ##
 	-diff ~/.config/karabiner/karabiner.json karabiner/karabiner.json
 
 get-kitty:     ##
-	mv --backup=numbered ~/.config/kitty/kitty.conf backups/
+	[ -f ~/.config/kitty/kitty.conf ] && mv --backup=numbered ~/.config/kitty/kitty.conf backups/ || true
 	cp kitty/kitty.conf ~/.config/kitty/kitty.conf
 	cp kitty/current-theme.conf ~/.config/kitty/current-theme.conf
 	cp -r kitty/themes ~/.config/kitty/themes
@@ -27,7 +27,7 @@ diff-kitty:    ##
 	-diff ~/.config/kitty/current-theme.conf kitty/current-theme.conf
 
 get-skhd: ##
-	mv --backup=numbered ~/.config/skhd/skhdrc backups/
+	[ -f ~/.config/skhd/skhdrc ] && mv --backup=numbered ~/.config/skhd/skhdrc backups/ || true
 	cp skhd/skhdrc ~/.config/skhd/skhdrc
 put-skhd: ##
 	cp ~/.config/skhd/skhdrc skhd/skhdrc
@@ -35,7 +35,7 @@ diff-skhd: ##
 	-diff ~/.config/skhd/skhdrc skhd/skhdrc
 
 get-starship:  ##
-	mv --backup=numbered ~/.config/starship.toml backups/
+	[ -f ~/.config/starship.toml ] && mv --backup=numbered ~/.config/starship.toml backups/ || true
 	cp starship/starship.toml ~/.config/starship.toml
 put-starship:  ##
 	cp ~/.config/starship.toml starship/starship.toml
@@ -43,7 +43,7 @@ diff-starship:  ##
 	-diff ~/.config/starship.toml starship/starship.toml
 
 get-tmux: ##
-	mv --backup=numbered ~/.config/tmux/tmux.conf backups/
+	[ -f ~/.config/tmux/tmux.conf ] && mv --backup=numbered ~/.config/tmux/tmux.conf backups/ || true
 	cp tmux/tmux.conf ~/.config/tmux/tmux.conf
 put-tmux: ##
 	cp ~/.config/tmux/tmux.conf tmux/tmux.conf
@@ -51,7 +51,7 @@ diff-tmux: ##
 	-diff ~/.config/tmux/tmux.conf tmux/tmux.conf
 
 get-yabai: ##
-	mv --backup=numbered ~/.config/yabai/yabairc backups/
+	[ -f ~/.config/yabai/yabairc ] && mv --backup=numbered ~/.config/yabai/yabairc backups/ || true
 	cp yabai/yabairc ~/.config/yabai/yabairc
 put-yabai: ##
 	cp ~/.config/yabai/yabairc yabai/yabairc
@@ -59,7 +59,7 @@ diff-yabai: ##
 	-diff ~/.config/yabai/yabairc yabai/yabairc
 
 get-zsh: ##
-	mv --backup=numbered ~/.zshrc backups/
+	[ -f ~/.zshrc ] && mv --backup=numbered ~/.zshrc backups/ || true
 	cp zsh/.zshrc ~/.zshrc
 put-zsh: ##
 	cp ~/.zshrc zsh/zshrc
