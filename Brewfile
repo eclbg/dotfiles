@@ -12,6 +12,7 @@ brew "starship"
 brew "yabai"
 brew "yqrashawn/goku/goku"
 brew "gh"
+brew "fzf"
 
 cask "1password-cli"
 cask "karabiner-elements"
