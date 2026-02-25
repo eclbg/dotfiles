@@ -5,7 +5,16 @@
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython ##
+get-all: get-atuin get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython ##
+
+get-atuin: ##
+	mkdir -p ~/.config/atuin
+	[ -f ~/.config/atuin/config.toml ] && mv --backup=numbered ~/.config/atuin/config.toml backups/ || true
+	cp atuin/config.toml ~/.config/atuin/config.toml
+put-atuin: ##
+	cp ~/.config/atuin/config.toml atuin/config.toml
+diff-atuin: ##
+	-diff ~/.config/atuin/config.toml atuin/config.toml
 
 get-karabiner: ##
 	mkdir -p ~/.config/karabiner
