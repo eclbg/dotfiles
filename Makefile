@@ -67,7 +67,7 @@ diff-yabai: ##
 
 get-zsh: ##
 	[ -f ~/.zshrc ] && mv --backup=numbered ~/.zshrc backups/ || true
-	cp zsh/.zshrc ~/.zshrc
+	cp zsh/zshrc ~/.zshrc
 put-zsh: ##
 	cp ~/.zshrc zsh/zshrc
 diff-zsh: ##
