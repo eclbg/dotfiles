@@ -13,11 +13,6 @@ antigen apply
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 bindkey -M viins '\e.' insert-last-word
 
-# configure pyenv
-export pyenv_root="$home/.pyenv"
-[[ -d $pyenv_root/bin ]] && export path="$pyenv_root/bin:$path"
-eval "$(pyenv init -)"
-
 ### aliases
 
 # nvim stuff
