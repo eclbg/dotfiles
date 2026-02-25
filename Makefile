@@ -10,6 +10,7 @@ get-all: get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython 
 get-karabiner: ##
 	mkdir -p ~/.config/karabiner
 	[ -f ~/.config/karabiner.edn ] && mv --backup=numbered ~/.config/karabiner.edn backups/ || true
+	cp karabiner/karabiner-seed.json ~/.config/karabiner/karabiner.json
 	cp karabiner/karabiner.edn ~/.config/karabiner.edn
 	goku
 put-karabiner: ##
