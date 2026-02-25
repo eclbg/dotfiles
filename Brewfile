@@ -14,6 +14,8 @@ brew "yqrashawn/goku/goku"
 brew "gh"
 brew "fzf"
 brew "ripgrep"
+brew "orbstack"
+brew "lazydocker"
 
 cask "1password-cli"
 cask "karabiner-elements"
