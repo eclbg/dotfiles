@@ -10,6 +10,7 @@ brew "mise"
 brew "skhd"
 brew "starship"
 brew "yabai"
+brew "yqrashawn/goku/goku"
 brew "zsh"
 
 cask "karabiner-elements"
