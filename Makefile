@@ -13,13 +13,18 @@ put-karabiner: ##
 diff-karabiner: ##
 	-diff ~/.config/karabiner/karabiner.json karabiner/karabiner.json
 
-get-kitty:     ## Only conf, no themes for now
+get-kitty:     ##
 	mv --backup=numbered ~/.config/kitty/kitty.conf backups/
 	cp kitty/kitty.conf ~/.config/kitty/kitty.conf
-put-kitty:     ## Only conf, no themes for now
+	cp kitty/current-theme.conf ~/.config/kitty/current-theme.conf
+	cp -r kitty/themes ~/.config/kitty/themes
+put-kitty:     ##
 	cp ~/.config/kitty/kitty.conf kitty/kitty.conf
-diff-kitty:     ## Only conf, no themes for now
+	cp ~/.config/kitty/current-theme.conf kitty/current-theme.conf
+	cp -r ~/.config/kitty/themes kitty/
+diff-kitty:    ##
 	-diff ~/.config/kitty/kitty.conf kitty/kitty.conf
+	-diff ~/.config/kitty/current-theme.conf kitty/current-theme.conf
 
 get-skhd: ##
 	mv --backup=numbered ~/.config/skhd/skhdrc backups/
