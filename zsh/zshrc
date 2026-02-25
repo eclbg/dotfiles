@@ -66,3 +66,6 @@ alias ampide="amp --ide"
 alias ampided="amp --ide --dangerously-allow-all --mode smart"
 alias ampd="amp --dangerously-allow-all --mode smart"
 alias ampidedd="amp --ide --dangerously-allow-all --mode deep"
+
+# Source machine-specific config if it exists
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
