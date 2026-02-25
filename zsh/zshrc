@@ -57,3 +57,9 @@ PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # Add more directories to path
 PATH="/Users/eclbg/.local/bin:/Users/eclbg/.local/bin/scripts:$PATH"
+
+# Amp CLI
+alias ampide="amp --ide"
+alias ampided="amp --ide --dangerously-allow-all --mode smart"
+alias ampd="amp --dangerously-allow-all --mode smart"
+alias ampidedd="amp --ide --dangerously-allow-all --mode deep"
