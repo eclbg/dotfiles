@@ -5,6 +5,8 @@
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
+get-all: get-karabiner get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython ##
+
 get-karabiner: ##
 	[ -f ~/.config/karabiner/karabiner.json ] && mv --backup=numbered ~/.config/karabiner/karabiner.json backups/ || true
 	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
