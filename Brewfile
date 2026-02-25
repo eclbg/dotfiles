@@ -12,6 +12,7 @@ brew "starship"
 brew "yabai"
 brew "yqrashawn/goku/goku"
 brew "zsh"
+brew "gh"
 
 cask "karabiner-elements"
 cask "kitty"
