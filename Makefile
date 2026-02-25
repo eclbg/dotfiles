@@ -62,6 +62,8 @@ get-tmux: ##
 	mkdir -p ~/.config/tmux
 	[ -f ~/.config/tmux/tmux.conf ] && mv --backup=numbered ~/.config/tmux/tmux.conf backups/ || true
 	cp tmux/tmux.conf ~/.config/tmux/tmux.conf
+	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	~/.tmux/plugins/tpm/bin/install_plugins
 put-tmux: ##
 	cp ~/.config/tmux/tmux.conf tmux/tmux.conf
 diff-tmux: ##
