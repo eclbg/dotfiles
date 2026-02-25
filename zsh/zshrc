@@ -54,3 +54,6 @@ export NVM_DIR="$HOME/.nvm"
 PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 # Add gnu-sed to the beginning of PATH
 PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# Add more directories to path
+PATH="/Users/eclbg/.local/bin:/Users/eclbg/.local/bin/scripts:$PATH"
