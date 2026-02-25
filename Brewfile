@@ -2,6 +2,8 @@ tap "koekeishiya/formulae"
 tap "yqrashawn/goku"
 
 brew "atuin"
+brew "coreutils"
+brew "gnu-sed"
 brew "ipython"
 brew "mise"
 brew "skhd"
