@@ -40,18 +40,7 @@ alias act=activate
 # alias killproc="ps -ef | grep '$1' | grep -v grep | awk '{print \$2}' | xargs kill -9"
 
 # Git
-alias gumaster='git fetch origin master:master'
-alias gumain='git fetch origin main:main'
-alias grit='git rebase -i `git merge-base master HEAD`'
-alias grita='git rebase -i `git merge-base master HEAD` --autosquash'
-alias gs='git status -uno' # Git status without untracked
-alias gsa='git status' # Git status with untracked
-function gnb() {
-    gumaster || :
-    git switch master 
-    git branch $1
-    git switch $1
-}
+alias gs='git status -uno --ignore-submodules' # Git status without untracked
 
 # Start zoxide (better cd)
 eval "$(zoxide init zsh)"
