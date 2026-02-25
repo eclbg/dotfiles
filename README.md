@@ -30,10 +30,25 @@ for the next step so no need to do it now.
 ### Configure passwordless sudo for yabai
 
 ```bash
-echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d ' ' -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
+echo "$(whoami) ALL=(root) NOPASSWD: SETENV: sha256:$(shasum -a 256 $(which yabai) | cut -d ' ' -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
 ```
 
 > **Note:** This must be re-run every time yabai is updated (the hash changes).
+
+### Gotchas
+
+- **`sudo: sorry, you are not allowed to set the following environment variables: TERMINFO`** — This happens when your terminal (e.g., Kitty) sets the `TERMINFO` env var. The fix is to add `SETENV:` to the sudoers entry (already included in the command above).
+
+- **`could not spawn remote thread: (os/kern) protection failure`** — Known bug in yabai v7.1.16+ on Sequoia, caused by a PAC ABI mismatch. Either downgrade to v7.1.15 or apply the [patch script from issue #2686](https://github.com/asmvik/yabai/issues/2686#issuecomment-2884938498). To downgrade:
+  ```bash
+  brew uninstall yabai
+  curl -L -o ~/yabai-old.rb https://raw.githubusercontent.com/koekeishiya/homebrew-formulae/f5711b9c70e104bffc79e3525e2ed0dc335bdbba/yabai.rb
+  brew tap-new local/yabai
+  mv ~/yabai-old.rb $(brew --repo local/yabai)/Formula/yabai.rb
+  brew install local/yabai/yabai
+  brew pin local/yabai/yabai
+  ```
+  Then re-run the sudoers command above.
 
 ### Start yabai and skhd
 
