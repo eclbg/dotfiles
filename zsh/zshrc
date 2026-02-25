@@ -13,6 +13,8 @@ antigen apply
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 bindkey -M viins '\e.' insert-last-word
 
+zvm_after_init_commands+=(eval "$(atuin init zsh)")
+
 ### aliases
 
 # nvim stuff
