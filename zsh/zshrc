@@ -42,10 +42,6 @@ alias act=activate
 # Git
 alias gs='git status -uno --ignore-submodules' # Git status without untracked
 
-# Start zoxide (better cd)
-eval "$(zoxide init zsh)"
-eval "$(~/.local/bin/mise activate zsh)"
-
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
