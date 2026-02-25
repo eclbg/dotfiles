@@ -58,6 +58,9 @@ PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 # Add more directories to path
 PATH="/Users/eclbg/.local/bin:/Users/eclbg/.local/bin/scripts:$PATH"
 
+# 1password completion
+eval "$(op completion zsh)"; compdef _op op
+
 # Amp CLI
 alias ampide="amp --ide"
 alias ampided="amp --ide --dangerously-allow-all --mode smart"

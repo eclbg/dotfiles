@@ -13,5 +13,6 @@ brew "yabai"
 brew "yqrashawn/goku/goku"
 brew "gh"
 
+cask "1password-cli"
 cask "karabiner-elements"
 cask "kitty"
