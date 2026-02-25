@@ -9,12 +9,13 @@ get-all: get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython 
 
 get-karabiner: ##
 	mkdir -p ~/.config/karabiner
-	[ -f ~/.config/karabiner/karabiner.json ] && mv --backup=numbered ~/.config/karabiner/karabiner.json backups/ || true
-	cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+	[ -f ~/.config/karabiner.edn ] && mv --backup=numbered ~/.config/karabiner.edn backups/ || true
+	cp karabiner/karabiner.edn ~/.config/karabiner.edn
+	goku
 put-karabiner: ##
-	cp ~/.config/karabiner/karabiner.json karabiner/karabiner.json
+	cp ~/.config/karabiner.edn karabiner/karabiner.edn
 diff-karabiner: ##
-	-diff ~/.config/karabiner/karabiner.json karabiner/karabiner.json
+	-diff ~/.config/karabiner.edn karabiner/karabiner.edn
 
 get-kitty:     ##
 	mkdir -p ~/.config/kitty
