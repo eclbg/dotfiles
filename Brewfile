@@ -20,3 +20,5 @@ brew "lazydocker"
 cask "1password-cli"
 cask "karabiner-elements"
 cask "kitty"
+
+cask "font-jetbrains-mono"
