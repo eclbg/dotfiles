@@ -23,4 +23,4 @@ cask "1password-cli"
 cask "karabiner-elements"
 cask "kitty"
 
-cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
