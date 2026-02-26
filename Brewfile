@@ -16,6 +16,8 @@ brew "fzf"
 brew "ripgrep"
 brew "orbstack"
 brew "lazydocker"
+brew "tree-sitter"
+brew "tree-sitter-cli"
 
 cask "1password-cli"
 cask "karabiner-elements"
