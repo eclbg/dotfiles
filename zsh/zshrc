@@ -28,9 +28,6 @@ alias ldl='echo "/users/eclbg/downloads/`ls -1 -t /users/eclbg/downloads | head 
 alias tinybird_stop="ps -ef | grep 'tinybird_server' | grep -v grep | awk '{print \$2}' | xargs kill -9"
 alias tinybird_stop_python="ps -ef | grep 'analytics/.e/bin/python' | grep -v grep | awk '{print \$2}' | xargs kill -9"
 
-# tools
-alias cat=bat
-
 # convenience
 alias activate='source .venv/bin/activate'
 alias act=activate
