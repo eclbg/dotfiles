@@ -10,6 +10,7 @@ get-all: ##
 	-$(MAKE) get-atuin
 	-$(MAKE) get-karabiner
 	-$(MAKE) get-kitty
+	-$(MAKE) get-ghostty
 	-$(MAKE) get-skhd
 	-$(MAKE) get-starship
 	-$(MAKE) get-yabai
@@ -49,6 +50,15 @@ put-kitty:     ##
 diff-kitty:    ##
 	-diff ~/.config/kitty/kitty.conf kitty/kitty.conf
 	-diff ~/.config/kitty/current-theme.conf kitty/current-theme.conf
+
+get-ghostty:   ##
+	mkdir -p ~/.config/ghostty
+	[ -f ~/.config/ghostty/config ] && mv --backup=numbered ~/.config/ghostty/config backups/ || true
+	cp ghostty/config ~/.config/ghostty/config
+put-ghostty:   ##
+	cp ~/.config/ghostty/config ghostty/config
+diff-ghostty:  ##
+	-diff ~/.config/ghostty/config ghostty/config
 
 get-skhd: ##
 	mkdir -p ~/.config/skhd

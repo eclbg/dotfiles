@@ -27,6 +27,6 @@ cask "orbstack"
 cask "1password-cli"
 cask "karabiner-elements"
 cask "kitty"
+cask "ghostty"
 
 cask "font-jetbrains-mono-nerd-font"
-
