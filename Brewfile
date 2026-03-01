@@ -20,6 +20,7 @@ brew "lazydocker"
 brew "tree-sitter"
 brew "tree-sitter-cli"
 brew "eclbg/tmux/tmux-eclbg"
+brew "neovim"
 
 cask "orbstack"
 cask "1password-cli"
