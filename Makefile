@@ -5,7 +5,7 @@
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: get-atuin get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython ##
+get-all: get-atuin get-kitty get-skhd get-starship get-yabai get-zsh get-ipython get-tmux ##
 
 get-atuin: ##
 	mkdir -p ~/.config/atuin
