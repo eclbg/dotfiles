@@ -67,5 +67,8 @@ alias ampided="amp --ide --dangerously-allow-all --mode smart"
 alias ampd="amp --dangerously-allow-all --mode smart"
 alias ampidedd="amp --ide --dangerously-allow-all --mode deep"
 
+# Prevent bare directory names from triggering implicit cd.
+unsetopt AUTO_CD
+
 # Source machine-specific config if it exists
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
