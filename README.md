@@ -2,18 +2,20 @@
 
 ## Installation
 
-1. Install Homebrew: https://brew.sh
-2. Install all tools: `brew bundle --file=Brewfile`
-3. Apply all configs: `make get-all`
+```bash
+./bootstrap.sh
+```
+
+This installs Xcode Command Line Tools and Homebrew. Then:
+
+```bash
+brew bundle --file=Brewfile
+make get-all
+```
 
 ## Yabai
 
 Yabai requires partial SIP disabling and a scripting addition to support space-level operations (e.g., focusing spaces with `alt + number`, or moving apps to spaces).
-
-### Some boot-args thing
-
-Run `sudo nvram boot-args=-arm64e_preview_abi `. Needs rebooting to take effect but you'll reboot
-for the next step so no need to do it now.
 
 ### Disable SIP partially
 
@@ -26,6 +28,11 @@ for the next step so no need to do it now.
    csrutil enable --without fs --without debug --without nvram
    ```
 6. Reboot
+
+### Some boot-args thing
+
+Run `sudo nvram boot-args=-arm64e_preview_abi `. 
+Reboot
 
 ### Configure passwordless sudo for yabai
 
