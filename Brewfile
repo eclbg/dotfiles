@@ -21,6 +21,7 @@ brew "tree-sitter"
 brew "tree-sitter-cli"
 brew "eclbg/tmux/tmux-eclbg"
 brew "neovim"
+brew "uv"
 
 cask "orbstack"
 cask "1password-cli"
