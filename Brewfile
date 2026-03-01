@@ -1,6 +1,7 @@
 tap "koekeishiya/formulae"
 tap "asmvik/formulae"
 tap "yqrashawn/goku"
+tap "eclbg/tmux", "https://github.com/eclbg/tmux"
 
 brew "antigen"
 brew "atuin"
@@ -17,6 +18,7 @@ brew "ripgrep"
 brew "lazydocker"
 brew "tree-sitter"
 brew "tree-sitter-cli"
+brew "eclbg/tmux/tmux-eclbg"
 
 cask "orbstack"
 cask "1password-cli"
@@ -24,3 +26,4 @@ cask "karabiner-elements"
 cask "kitty"
 
 cask "font-jetbrains-mono-nerd-font"
+
