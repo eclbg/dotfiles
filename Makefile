@@ -2,6 +2,7 @@
 ##All `put` commands do the opposite: copy the local config here, so we can add the changes to the repo
 ##All `diff` commands show the diff between the local (first arg) and repo (second arg) configs
 ##
+export PATH := /opt/homebrew/opt/coreutils/libexec/gnubin:$(PATH)
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
