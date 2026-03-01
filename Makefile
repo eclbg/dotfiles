@@ -6,7 +6,15 @@ export PATH := /opt/homebrew/opt/coreutils/libexec/gnubin:$(PATH)
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: get-atuin get-kitty get-skhd get-starship get-yabai get-zsh get-tmux ##
+get-all: ##
+	-$(MAKE) get-atuin
+	-$(MAKE) get-karabiner
+	-$(MAKE) get-kitty
+	-$(MAKE) get-skhd
+	-$(MAKE) get-starship
+	-$(MAKE) get-yabai
+	-$(MAKE) get-zsh
+	-$(MAKE) get-tmux
 
 get-atuin: ##
 	mkdir -p ~/.config/atuin
