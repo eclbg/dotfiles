@@ -5,7 +5,7 @@
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: get-atuin get-kitty get-skhd get-starship get-yabai get-zsh get-ipython get-tmux ##
+get-all: get-atuin get-kitty get-skhd get-starship get-yabai get-zsh get-tmux ##
 
 get-atuin: ##
 	mkdir -p ~/.config/atuin
@@ -86,7 +86,3 @@ put-zsh: ##
 diff-zsh: ##
 	-diff ~/.zshrc zsh/zshrc
 
-get-ipython: ##
-	mkdir -p ~/.ipython/profile_default/startup
-	cp ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
-	cp ipython/keybindings.py ~/.ipython/profile_default/startup/keybindings.py
