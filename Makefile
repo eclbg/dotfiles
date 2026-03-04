@@ -2,20 +2,10 @@
 ##All `put` commands do the opposite: copy the local config here, so we can add the changes to the repo
 ##All `diff` commands show the diff between the local (first arg) and repo (second arg) configs
 ##
-export PATH := /opt/homebrew/opt/coreutils/libexec/gnubin:$(PATH)
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: ##
-	-$(MAKE) get-atuin
-	-$(MAKE) get-karabiner
-	-$(MAKE) get-kitty
-	-$(MAKE) get-ghostty
-	-$(MAKE) get-skhd
-	-$(MAKE) get-starship
-	-$(MAKE) get-yabai
-	-$(MAKE) get-zsh
-	-$(MAKE) get-tmux
+get-all: get-atuin get-git get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython ##
 
 get-atuin: ##
 	mkdir -p ~/.config/atuin
@@ -25,6 +15,18 @@ put-atuin: ##
 	cp ~/.config/atuin/config.toml atuin/config.toml
 diff-atuin: ##
 	-diff ~/.config/atuin/config.toml atuin/config.toml
+
+get-git: ##
+	[ -f ~/.gitconfig ] && mv --backup=numbered ~/.gitconfig backups/ || true
+	[ -f ~/.gitignore ] && mv --backup=numbered ~/.gitignore backups/ || true
+	cp git/gitconfig ~/.gitconfig
+	cp git/gitignore ~/.gitignore
+put-git: ##
+	cp ~/.gitconfig git/gitconfig
+	cp ~/.gitignore git/gitignore
+diff-git: ##
+	-diff ~/.gitconfig git/gitconfig
+	-diff ~/.gitignore git/gitignore
 
 get-karabiner: ##
 	mkdir -p ~/.config/karabiner
@@ -50,15 +52,6 @@ put-kitty:     ##
 diff-kitty:    ##
 	-diff ~/.config/kitty/kitty.conf kitty/kitty.conf
 	-diff ~/.config/kitty/current-theme.conf kitty/current-theme.conf
-
-get-ghostty:   ##
-	mkdir -p ~/.config/ghostty
-	[ -f ~/.config/ghostty/config ] && mv --backup=numbered ~/.config/ghostty/config backups/ || true
-	cp ghostty/config ~/.config/ghostty/config
-put-ghostty:   ##
-	cp ~/.config/ghostty/config ghostty/config
-diff-ghostty:  ##
-	-diff ~/.config/ghostty/config ghostty/config
 
 get-skhd: ##
 	mkdir -p ~/.config/skhd
@@ -105,3 +98,7 @@ put-zsh: ##
 diff-zsh: ##
 	-diff ~/.zshrc zsh/zshrc
 
+get-ipython: ##
+	mkdir -p ~/.ipython/profile_default/startup
+	cp ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
+	cp ipython/keybindings.py ~/.ipython/profile_default/startup/keybindings.py

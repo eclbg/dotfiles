@@ -1,0 +1,13 @@
+[core]
+	excludesfile = ~/.gitignore
+	editor = nvim
+[rebase]
+	autostash = true
+[push]
+	autosetupremote = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[init]
+	defaultbranch = main
+[diff]
+	algorithm = histogram
