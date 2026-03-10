@@ -1,10 +1,10 @@
-{:devices {:builtin [{:is_keyboard true}]}
+{:devices {:builtin [{:is_keyboard true :is_built_in_keyboard true}]}
   :main [{:des "caps lock as left_control and viceversa"
           :rules [:builtin [:##caps_lock :left_control] [:##left_control :caps_lock]]}
          {:des "slash as right_control when held"
-          :rules [[:##slash :right_control nil {:alone :slash}]]}
+          :rules [:builtin [:##slash :right_control nil {:alone :slash}]]}
          {:des "tab as left command when held"
-          :rules [[:##tab :left_command nil {:alone :tab}]]}
+          :rules [:builtin [:##tab :left_command nil {:alone :tab}]]}
          {:des "open_bracket for sym layer"
           :rules [:builtin [:open_bracket ["sym-mode" 1] nil {:afterup ["sym-mode" 0]
                                                               :alone :open_bracket}]

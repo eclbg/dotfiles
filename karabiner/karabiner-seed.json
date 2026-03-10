@@ -6,13 +6,6 @@
             },
             "name": "Default",
             "selected": true
-        },
-        {
-            "complex_modifications": {
-                "rules": []
-            },
-            "name": "Moonlander plugged in",
-            "selected": false
         }
     ]
 }
