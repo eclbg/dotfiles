@@ -24,6 +24,7 @@ brew "neovim"
 brew "uv"
 brew "netcat"
 brew "mosh"
+brew "rustup"
 
 cask "orbstack"
 cask "1password-cli"
