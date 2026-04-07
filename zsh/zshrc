@@ -19,7 +19,7 @@ zvm_after_init_commands+=(eval "$(atuin init zsh)")
 
 # nvim stuff
 alias vi=nvim
-alias vis='nvim -s'
+alias vig='nvim +Git +only'
 
 # last download
 alias ldl='echo "/users/eclbg/downloads/`ls -1 -t /users/eclbg/downloads | head -n 1`"'
