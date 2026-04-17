@@ -1,0 +1,54 @@
+set autoindent
+set breakindent
+set hidden
+set ignorecase
+set smartcase
+set laststatus=2
+set mouse=a
+set number
+set relativenumber
+set signcolumn=yes
+set splitright
+set termguicolors
+set undofile
+set updatetime=1000
+set cmdheight=1
+set scrolloff=8
+set noswapfile
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set formatoptions-=a
+set formatoptions-=t
+set formatoptions+=c
+set formatoptions+=q
+set formatoptions-=o
+set formatoptions+=r
+set formatoptions+=n
+set formatoptions+=j
+set formatoptions-=2
+
+set path-=/usr/include
+set path+=**
+set wildignorecase
+set wildignore+=**/node_modules/*
+set wildignore+=**/.git/*
+
+let mapleader = " "
+noremap <Space> <Nop>
+
+inoremap jk <Esc>
+tnoremap jk <C-\><C-n>
+inoremap <Esc><BS> <C-w>
+
+nnoremap n /<CR>
+nnoremap N ?<CR>
+
+nnoremap <silent> <leader>/ :nohlsearch<CR>
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y

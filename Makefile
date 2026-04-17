@@ -5,7 +5,7 @@
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: get-atuin get-git get-kitty get-skhd get-starship get-tmux get-yabai get-zsh get-ipython ##
+get-all: get-atuin get-git get-kitty get-skhd get-starship get-tmux get-vim get-yabai get-zsh get-ipython ##
 
 get-atuin: ##
 	mkdir -p ~/.config/atuin
@@ -80,6 +80,14 @@ put-tmux: ##
 	cp ~/.config/tmux/tmux.conf tmux/tmux.conf
 diff-tmux: ##
 	-diff ~/.config/tmux/tmux.conf tmux/tmux.conf
+
+get-vim: ##
+	[ -f ~/.vimrc ] && mv --backup=numbered ~/.vimrc backups/ || true
+	cp vim/vimrc ~/.vimrc
+put-vim: ##
+	cp ~/.vimrc vim/vimrc
+diff-vim: ##
+	-diff ~/.vimrc vim/vimrc
 
 get-yabai: ##
 	mkdir -p ~/.config/yabai
