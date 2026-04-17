@@ -42,9 +42,7 @@ alias act=activate
 alias gs='git status -uno --ignore-submodules' # Git status without untracked
 
 # Node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Add gnu versions of coreutils to the beginning of PATH. These will have no effect unless they've been installed previously with `brew install coreutils
 # These include ls, cat, mv, cp...
