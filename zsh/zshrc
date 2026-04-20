@@ -53,6 +53,8 @@ PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 # Add gnu patch to PATH
 PATH="/opt/homebrew/opt/gpatch/libexec/gnubin:$PATH"
+# gnu find
+PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 
 # Add more directories to path
 PATH="/Users/eclbg/.local/bin:/Users/eclbg/.local/bin/scripts:$PATH"
