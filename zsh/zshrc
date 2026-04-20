@@ -55,6 +55,8 @@ PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/opt/homebrew/opt/gpatch/libexec/gnubin:$PATH"
 # gnu find
 PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+# gnu grep
+PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 
 # Add more directories to path
 PATH="/Users/eclbg/.local/bin:/Users/eclbg/.local/bin/scripts:$PATH"
