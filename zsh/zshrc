@@ -1,6 +1,9 @@
 # Use starship for the shell prompt
 eval "$(starship init zsh)"
 
+# Keep PATH entries unique when this file is sourced more than once, e.g. in tmux.
+typeset -U path PATH
+
 source /opt/homebrew/share/antigen/antigen.zsh  # It's getting deprecated
 
 # Load the oh-my-zsh library.
