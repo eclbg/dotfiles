@@ -29,6 +29,7 @@ brew "netcat"
 brew "mosh"
 brew "rustup"
 brew "fnm"
+brew "tree"
 
 cask "orbstack"
 cask "1password-cli"
