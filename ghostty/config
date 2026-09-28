@@ -40,6 +40,7 @@
 ### Mirrored from kitty/kitty.conf and kitty/current-theme.conf ###
 
 macos-option-as-alt = left
+font-size = 14
 # Mirror Kitty's `hide_window_decorations titlebar-only`.
 macos-titlebar-style = hidden
 
