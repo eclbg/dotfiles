@@ -5,7 +5,7 @@
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: get-atuin get-git get-kitty get-skhd get-starship get-tmux get-vim get-yabai get-zsh get-ipython ##
+get-all: get-atuin get-git get-karabiner get-ghostty get-kitty get-skhd get-starship get-tmux get-vim get-yabai get-zsh ##
 
 get-atuin: ##
 	mkdir -p ~/.config/atuin
@@ -38,6 +38,15 @@ put-karabiner: ##
 	cp ~/.config/karabiner.edn karabiner/karabiner.edn
 diff-karabiner: ##
 	-diff ~/.config/karabiner.edn karabiner/karabiner.edn
+
+get-ghostty: ##
+	mkdir -p ~/.config/ghostty
+	[ -f ~/.config/ghostty/config ] && mv --backup=numbered ~/.config/ghostty/config backups/ || true
+	cp ghostty/config ~/.config/ghostty/config
+put-ghostty: ##
+	cp ~/.config/ghostty/config ghostty/config
+diff-ghostty: ##
+	-diff ~/.config/ghostty/config ghostty/config
 
 get-kitty:     ##
 	mkdir -p ~/.config/kitty
@@ -105,8 +114,3 @@ put-zsh: ##
 	cp ~/.zshrc zsh/zshrc
 diff-zsh: ##
 	-diff ~/.zshrc zsh/zshrc
-
-get-ipython: ##
-	mkdir -p ~/.ipython/profile_default/startup
-	cp ipython/ipython_config.py ~/.ipython/profile_default/ipython_config.py
-	cp ipython/keybindings.py ~/.ipython/profile_default/startup/keybindings.py
