@@ -76,5 +76,9 @@ alias ampidedd="amp --ide --dangerously-allow-all --mode deep"
 # Prevent bare directory names from triggering implicit cd.
 unsetopt AUTO_CD
 
+echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
+
+source ~/.orbstack/shell/init.zsh
+
 # Source machine-specific config if it exists
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
