@@ -5,7 +5,7 @@
 help:          ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-get-all: get-atuin get-git get-karabiner get-ghostty get-kitty get-skhd get-starship get-tmux get-vim get-yabai get-zsh ##
+get-all: get-atuin get-git get-karabiner get-ghostty get-kitty get-rex get-skhd get-starship get-tmux get-vim get-yabai get-zsh ##
 
 get-atuin: ##
 	mkdir -p ~/.config/atuin
@@ -61,6 +61,15 @@ put-kitty:     ##
 diff-kitty:    ##
 	-diff ~/.config/kitty/kitty.conf kitty/kitty.conf
 	-diff ~/.config/kitty/current-theme.conf kitty/current-theme.conf
+
+get-rex: ##
+	mkdir -p ~/.config/rex
+	[ -f ~/.config/rex/init.lua ] && mv --backup=numbered ~/.config/rex/init.lua backups/ || true
+	cp rex/init.lua ~/.config/rex/init.lua
+put-rex: ##
+	cp ~/.config/rex/init.lua rex/init.lua
+diff-rex: ##
+	-diff ~/.config/rex/init.lua rex/init.lua
 
 get-skhd: ##
 	mkdir -p ~/.config/skhd
