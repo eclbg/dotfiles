@@ -22,6 +22,44 @@ rex.bind("ctrl+space>shift+'", "pane.split", { direction = "down" }) -- "
 rex.bind("ctrl+space>z", "pane.zoom")
 rex.bind("ctrl+space>x", "pane.close")
 rex.bind("ctrl+space>o", "pane.focus_next")
+
+-- Swap with the previous/next pane in layout order, wrapping like tmux { / }.
+-- Stay within the current layer; do not swap into other tabs or floating layers.
+for key, step in pairs({ ["shift+["] = -1, ["shift+]"] = 1 }) do
+  rex.bind("ctrl+space>" .. key, function(ctx)
+    local view = rex.session.view{}
+    if not view then
+      return true
+    end
+    for _, window in ipairs(view.windows) do
+      for _, layer in ipairs(window.layers) do
+        local panes = {}
+        local function collect(node)
+          if node.block_id then
+            panes[#panes + 1] = node.block_id
+          elseif node.split then
+            collect(node.split.before)
+            collect(node.split.after)
+          end
+        end
+        collect(layer.layout)
+        for index, block_id in ipairs(panes) do
+          if block_id == ctx.block_id then
+            if #panes > 1 then
+              rex.session.swap_blocks{
+                block_id = block_id,
+                other_block_id = panes[(index - 1 + step) % #panes + 1],
+              }
+            end
+            return true
+          end
+        end
+      end
+    end
+    return true
+  end)
+end
+
 for key, direction in pairs({ h = "left", j = "down", k = "up", l = "right" }) do
   rex.bind("ctrl+" .. key, function(ctx)
     local process = rex.block.call("com.superlogical.terminal", "process", {
