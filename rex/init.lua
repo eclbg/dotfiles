@@ -94,6 +94,9 @@ rex.bind("ctrl+space>g", "session.switch")
 rex.bind("ctrl+space>s", "session.switch")
 rex.bind("ctrl+space>shift+4", "session.rename") -- $
 
+-- Fuzzy tab picker: current session by default, Ctrl+A for all sessions.
+require("tab_picker")
+
 -- Workspace snapshots are available in the command palette, without shortcuts.
 require("workspace")
 

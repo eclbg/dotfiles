@@ -66,14 +66,18 @@ get-rex: ##
 	mkdir -p ~/.config/rex
 	[ -f ~/.config/rex/init.lua ] && mv --backup=numbered ~/.config/rex/init.lua backups/ || true
 	[ -f ~/.config/rex/workspace.lua ] && mv --backup=numbered ~/.config/rex/workspace.lua backups/ || true
+	[ -f ~/.config/rex/tab_picker.lua ] && mv --backup=numbered ~/.config/rex/tab_picker.lua backups/ || true
 	cp rex/init.lua ~/.config/rex/init.lua
 	cp rex/workspace.lua ~/.config/rex/
+	cp rex/tab_picker.lua ~/.config/rex/
 put-rex: ##
 	cp ~/.config/rex/init.lua rex/init.lua
 	cp ~/.config/rex/workspace.lua rex/
+	cp ~/.config/rex/tab_picker.lua rex/
 diff-rex: ##
 	-diff ~/.config/rex/init.lua rex/init.lua
 	-diff ~/.config/rex/workspace.lua rex/workspace.lua
+	-diff ~/.config/rex/tab_picker.lua rex/tab_picker.lua
 
 get-skhd: ##
 	mkdir -p ~/.config/skhd
