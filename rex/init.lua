@@ -94,6 +94,9 @@ rex.bind("ctrl+space>g", "session.switch")
 rex.bind("ctrl+space>s", "session.switch")
 rex.bind("ctrl+space>shift+4", "session.rename") -- $
 
+-- Workspace snapshots are available in the command palette, without shortcuts.
+require("workspace")
+
 -- Intentionally not ported yet:
 -- * Ctrl+\: no previous-pane binding yet.
 -- * Prefix+[: Rex currently has no keyboard selection/copy-mode actions.

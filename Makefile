@@ -65,11 +65,15 @@ diff-kitty:    ##
 get-rex: ##
 	mkdir -p ~/.config/rex
 	[ -f ~/.config/rex/init.lua ] && mv --backup=numbered ~/.config/rex/init.lua backups/ || true
+	[ -f ~/.config/rex/workspace.lua ] && mv --backup=numbered ~/.config/rex/workspace.lua backups/ || true
 	cp rex/init.lua ~/.config/rex/init.lua
+	cp rex/workspace.lua ~/.config/rex/
 put-rex: ##
 	cp ~/.config/rex/init.lua rex/init.lua
+	cp ~/.config/rex/workspace.lua rex/
 diff-rex: ##
 	-diff ~/.config/rex/init.lua rex/init.lua
+	-diff ~/.config/rex/workspace.lua rex/workspace.lua
 
 get-skhd: ##
 	mkdir -p ~/.config/skhd
