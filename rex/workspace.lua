@@ -8,10 +8,6 @@ local function checked(result, err)
   return result
 end
 
-local function quote(value)
-  return "'" .. value:gsub("'", "'\\''") .. "'"
-end
-
 local shells = { zsh = true, bash = true, sh = true, fish = true, dash = true,
   ksh = true, tcsh = true, csh = true, nu = true, login = true }
 
@@ -19,10 +15,9 @@ local function running_command(process)
   if not process or not process.pid then return nil end
   local name = (process.name or ""):match("[^/]+$") or ""
   if shells[name:gsub("^-", "")] then return nil end
-  local pipe = io.popen("ps -ww -p " .. string.format("%d", process.pid) .. " -o command=", "r")
-  if not pipe then return nil end
-  local command = pipe:read("*a"):gsub("\n$", "")
-  pipe:close()
+  local result = rex.exec({ "ps", "-ww", "-p", string.format("%d", process.pid), "-o", "command=" })
+  if not result or not result.ok then return nil end
+  local command = result.stdout:gsub("\n$", "")
   -- Never inject line breaks or terminal control sequences. No Enter is sent.
   if command == "" or command:find("[%z\1-\31\127]") then return nil end
   return command
@@ -80,9 +75,12 @@ rex.action{
       saved.sessions[#saved.sessions + 1] = view
     end
     if #saved.sessions == 0 then error("No sessions to save; keeping the previous snapshot", 0) end
-    os.execute("umask 077; mkdir -p " .. quote(state))
     -- Create privately, then rename so a failed save cannot truncate the snapshot.
-    os.execute("umask 077; : > " .. quote(snapshot .. ".tmp"))
+    local prepared = checked(rex.exec({ "sh", "-c",
+      'umask 077; mkdir -p "$1" && : > "$2"',
+      "rex-workspace", state, snapshot .. ".tmp",
+    }))
+    if not prepared.ok then error("Cannot prepare workspace snapshot: " .. prepared.stderr, 0) end
     local file = checked(io.open(snapshot .. ".tmp", "wb"))
     checked(file:write("return " .. encode(saved) .. "\n"))
     checked(file:close())
