@@ -82,10 +82,29 @@ for key, direction in pairs({ h = "left", j = "down", k = "up", l = "right" }) d
     wrap = false,
   })
 end
+
+rex.action{
+  name = "start_resize",
+  title = "Start Resizing Pane",
+  args = { direction = "string" },
+  run = function(ctx, args)
+    rex.client.queue("pane.resize", { direction = args.direction, amount = 1 })
+    rex.client.queue("client.mode.enter", { name = "resize" })
+  end,
+}
+
 for _, direction in ipairs({ "left", "down", "up", "right" }) do
   rex.bind("ctrl+space>" .. direction, "pane.focus", {
     direction = direction,
     wrap = false,
+  })
+  -- Start resizing with the prefix, then repeat Ctrl+arrows until Escape.
+  rex.bind("ctrl+space>ctrl+" .. direction, "start_resize", {
+    direction = direction,
+  })
+  rex.bind("resize/ctrl+" .. direction, "pane.resize", {
+    direction = direction,
+    amount = 1,
   })
 end
 
