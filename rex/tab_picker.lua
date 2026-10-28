@@ -48,6 +48,7 @@ if rex.args then
     local prompt = global and "All sessions > " or "Current session > "
     local result = checked(rex.exec({
       "fzf", "--no-multi", "--layout=reverse", "--border", "--delimiter=\t", "--with-nth=3..",
+      "--color=light,bg:#fafafa,bg+:#e5e7eb,fg:#202020,fg+:#111111,gutter:#fafafa,border:#9ca3af",
       "--expect=ctrl-a", "--print-query",
       "--header=Enter: switch · Ctrl+A: current/all sessions · Esc: cancel",
       "--prompt=" .. prompt, "--query=" .. query,
