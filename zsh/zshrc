@@ -26,8 +26,8 @@ command -v atuin >/dev/null && zvm_after_init_commands+=(eval "$(atuin init zsh)
 ### aliases
 
 # nvim stuff
-export EDITOR=vim
-export VISUAL=nvim
+export EDITOR=nvim
+export VISUAL=$EDITOR
 alias vi=nvim
 alias vig='nvim +Git +only'
 
