@@ -62,6 +62,17 @@ diff-kitty:    ##
 	-diff ~/.config/kitty/kitty.conf kitty/kitty.conf
 	-diff ~/.config/kitty/current-theme.conf kitty/current-theme.conf
 
+get-mise: ## Linux only: CLI tools that Homebrew installs on macOS, for machines without Homebrew or sudo
+	mkdir -p ~/.config/mise
+	[ -f ~/.config/mise/config.toml ] && mv --backup=numbered ~/.config/mise/config.toml backups/ || true
+	cp mise/config.toml ~/.config/mise/config.toml
+	command -v mise >/dev/null || curl -fsSL https://mise.run | sh
+	PATH="$$HOME/.local/bin:$$PATH" mise install --yes
+put-mise: ##
+	cp ~/.config/mise/config.toml mise/config.toml
+diff-mise: ##
+	-diff ~/.config/mise/config.toml mise/config.toml
+
 get-rex: ##
 	mkdir -p ~/.config/rex
 	[ -f ~/.config/rex/init.lua ] && mv --backup=numbered ~/.config/rex/init.lua backups/ || true

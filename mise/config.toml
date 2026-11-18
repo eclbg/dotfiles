@@ -1,0 +1,9 @@
+# CLI tools for Linux machines without Homebrew or sudo (on macOS the Brewfile installs them)
+[tools]
+atuin = "latest"
+bat = "latest"
+fzf = "latest"
+neovim = "0.12"
+ripgrep = "latest"
+starship = "latest"
+tree-sitter = "latest"
