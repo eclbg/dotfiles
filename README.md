@@ -13,6 +13,15 @@ brew bundle --file=Brewfile
 make get-all
 ```
 
+## Linux without sudo
+
+```bash
+make get-linux
+```
+
+This installs the portable configs (zsh, git, vim, starship, atuin, Rex), installs mise if needed and
+the tools in `mise/config.toml` with it, downloads antigen, and makes zsh the login shell if it's installed.
+
 ## Yabai
 
 Yabai requires partial SIP disabling and a scripting addition to support space-level operations (e.g., focusing spaces with `alt + number`, or moving apps to spaces).

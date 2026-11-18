@@ -7,6 +7,11 @@ help:          ## Show this help.
 
 get-all: get-atuin get-git get-karabiner get-ghostty get-kitty get-rex get-skhd get-starship get-tmux get-vim get-yabai get-zsh ##
 
+get-linux: get-atuin get-git get-mise get-rex get-starship get-vim get-zsh ## Set up a Linux machine without sudo: portable configs, their tools, antigen, zsh as login shell
+	[ -f ~/.local/share/antigen/antigen.zsh ] || curl -fsSL --create-dirs -o ~/.local/share/antigen/antigen.zsh https://raw.githubusercontent.com/zsh-users/antigen/v2.2.3/bin/antigen.zsh
+	@zsh=$$(command -v zsh) || { echo "zsh is not installed, keeping the current login shell"; exit 0; }; \
+	[ "$$(getent passwd $$(id -un) | cut -d: -f7)" = "$$zsh" ] || chsh -s "$$zsh"
+
 get-atuin: ##
 	mkdir -p ~/.config/atuin
 	[ -f ~/.config/atuin/config.toml ] && mv --backup=numbered ~/.config/atuin/config.toml backups/ || true
