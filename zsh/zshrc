@@ -67,12 +67,6 @@ PATH="/Users/eclbg/.local/bin:/Users/eclbg/.local/bin/scripts:$PATH"
 # 1password completion
 eval "$(op completion zsh)"; compdef _op op
 
-# Amp CLI
-alias ampide="amp --ide"
-alias ampided="amp --ide --dangerously-allow-all --mode smart"
-alias ampd="amp --dangerously-allow-all --mode smart"
-alias ampidedd="amp --ide --dangerously-allow-all --mode deep"
-
 # Prevent bare directory names from triggering implicit cd.
 unsetopt AUTO_CD
 
