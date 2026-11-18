@@ -1,10 +1,15 @@
 # Use starship for the shell prompt
-eval "$(starship init zsh)"
+command -v starship >/dev/null && eval "$(starship init zsh)"
 
 # Keep PATH entries unique when this file is sourced more than once, e.g. in tmux.
 typeset -U path PATH
 
-source /opt/homebrew/share/antigen/antigen.zsh  # It's getting deprecated
+# Homebrew's antigen on macOS; on Linux, `make get-linux` downloads it.
+if [[ -f /opt/homebrew/share/antigen/antigen.zsh ]]; then
+  source /opt/homebrew/share/antigen/antigen.zsh  # It's getting deprecated
+else
+  source ~/.local/share/antigen/antigen.zsh
+fi
 
 # Load the oh-my-zsh library.
 antigen use oh-my-zsh
@@ -16,7 +21,7 @@ antigen apply
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 bindkey -M viins '\e.' insert-last-word
 
-zvm_after_init_commands+=(eval "$(atuin init zsh)")
+command -v atuin >/dev/null && zvm_after_init_commands+=(eval "$(atuin init zsh)")
 
 ### aliases
 
@@ -47,8 +52,9 @@ alias act=activate
 alias gs='git status -uno --ignore-submodules' # Git status without untracked
 
 # Node version manager
-eval "$(fnm env --use-on-cd --shell zsh)"
+command -v fnm >/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 
+if [[ $OSTYPE == darwin* ]]; then
 # Add gnu versions of coreutils to the beginning of PATH. These will have no effect unless they've been installed previously with `brew install coreutils
 # These include ls, cat, mv, cp...
 PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
@@ -60,19 +66,20 @@ PATH="/opt/homebrew/opt/gpatch/libexec/gnubin:$PATH"
 PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 # gnu grep
 PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+fi
 
 # Add more directories to path
-PATH="/Users/eclbg/.local/bin:/Users/eclbg/.local/bin/scripts:$PATH"
+PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$PATH"
 
 # 1password completion
-eval "$(op completion zsh)"; compdef _op op
+command -v op >/dev/null && { eval "$(op completion zsh)"; compdef _op op }
 
 # Prevent bare directory names from triggering implicit cd.
 unsetopt AUTO_CD
 
-eval "$(mise activate zsh)"
+command -v mise >/dev/null && eval "$(mise activate zsh)"
 
-source ~/.orbstack/shell/init.zsh
+[ -f ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
 
 # Source machine-specific config if it exists
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
